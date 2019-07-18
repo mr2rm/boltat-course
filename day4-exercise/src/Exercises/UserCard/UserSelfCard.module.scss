@@ -1,0 +1,45 @@
+.card {
+    width: 30%;
+    background-color: lightcyan;
+    margin: 0 auto;
+    border-radius: 1vw;
+    padding: 15px;
+}
+
+.image {
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.identity {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+
+    .firstname,
+    .surname {
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .firstname {
+        margin-bottom: 10px
+    }
+
+    .surname {
+        margin-top: 0
+    }
+}
+
+.detail {
+    margin-top: 15px;
+
+    .point {
+        width: 4px;
+        height: 4px;
+        background-color: black;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 3px;
+    }
+}
