@@ -5,3 +5,11 @@ A)
   2. request to url: `http://localhost:3001/persons` to get every person 
   3. show the loading indicator while you are loading the data (src/assets/images/loading.svg)
   4. show the data once the loading is complete
+
+B)
+  1. run `yarn dev-server` to start server on port 3001
+  2. request to url: `http://localhost:3001/persons?_page=1` to get first 10 items of persons resource
+  3. show the loading indicator while you are loading the data (src/assets/images/loading.svg)
+  4. show the fetched items on the screen and fetch the remaining persons (you can find the url in the server response)
+  5. show the loading indicator after the first ten loaded persons while the remaining of data is getting loaded
+  6. show the remaining persons once the fetching is completed and remove the loading indicator
