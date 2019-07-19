@@ -1,8 +1,15 @@
-import React from 'react';
-import { UserSelfCard } from '../UserCard';
+import React from "react";
+import { UserSelfCard } from "../UserCard";
 
 const UserList = ({ users }) => {
-  return null;
+	console.log(users);
+	return (
+		<>
+			{users.map(user => (
+				<UserSelfCard user={user} key={user.id} />
+			))}
+		</>
+	);
 };
 
 export default UserList;
