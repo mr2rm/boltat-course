@@ -11,8 +11,8 @@ function App() {
   return (
     <div className={styles.page}>
       {/* <Exercise1 /> */}
-      <Exercise2 />
-      {/* <Exercise3 /> */}
+      {/* <Exercise2 /> */}
+      <Exercise3 />
       {/* <Exercise4 /> */}
     </div>
   );
