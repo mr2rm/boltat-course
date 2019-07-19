@@ -1,0 +1,7 @@
+!In these bonus exercises, the users param won't get passed to the UserList component you should fetch users yourself
+
+A)
+  1. run `yarn dev-server` to start server on port 3001
+  2. request to url: `http://localhost:3001/persons` to get every person 
+  3. show the loading indicator while you are loading the data (src/assets/images/loading.svg)
+  4. show the data once the loading is complete
