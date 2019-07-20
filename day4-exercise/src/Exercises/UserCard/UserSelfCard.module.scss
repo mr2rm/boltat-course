@@ -1,0 +1,70 @@
+.card {
+    background-color: lightcyan;
+    width: 25%;
+    min-width: 200px;
+    max-width: 400px;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 15px;
+
+    .image {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        vertical-align: middle;
+    }
+
+    .imageDescription {
+        display: inline-block;
+        vertical-align: middle;
+
+        p {
+            font-size: 30px;
+            font-weight: 500;
+            margin: 0 15px
+        }
+    }
+
+    .details {
+        margin: 15px 0 0 0;
+
+        .bullet {
+            border: 0.04cm solid #222;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 3px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .image {
+            width: 155px;
+            height: 155px;
+        }
+
+        .imageDescription {
+            p {
+                font-size: 45px;
+                text-align: center;
+            }
+        }
+
+        .details {
+            font-size: 28px;
+            margin: 25px 0 0 0;
+
+            .bullet {
+                border: 0.07cm solid #222;
+                margin: 5px;
+            }
+        }
+    }
+}
