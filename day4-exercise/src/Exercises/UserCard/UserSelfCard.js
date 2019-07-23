@@ -2,12 +2,13 @@ import React from "react";
 import classnames from "classnames";
 import styles from "./UserSelfCard.module.scss";
 
-const UserSelfCard = ({ user, secondary = false }) => {
+const UserSelfCard = ({ user, secondary = false, hoverable = false }) => {
 	return (
 		<div className={styles.container}>
 			<div
 				className={classnames(styles.card, styles.selfCard, {
-					[styles.secondary]: secondary
+					[styles.secondary]: secondary,
+					[styles.hoverable]: hoverable
 				})}
 			>
 				<img src={user.image} className={styles.image} />

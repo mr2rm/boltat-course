@@ -14,6 +14,7 @@ const UserCard = ({ user }) => {
 						key={id}
 						user={getPersonById(id)}
 						secondary={true}
+						hoverable={true}
 					/>
 				))}
 			</div>
@@ -24,6 +25,7 @@ const UserCard = ({ user }) => {
 						key={id}
 						user={getPersonById(id)}
 						secondary={true}
+						hoverable={true}
 					/>
 				))}
 			</div>
