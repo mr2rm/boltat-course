@@ -1,0 +1,14 @@
+@import './base.scss';
+
+.card {
+    .title {
+        font-weight: 600;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+    }
+
+    .link {
+        display: block;
+        margin-bottom: 5px;
+    }
+}

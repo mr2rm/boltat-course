@@ -1,12 +1,6 @@
-.card {
-    background-color: lightcyan;
-    width: 25%;
-    min-width: 200px;
-    max-width: 400px;
-    border-radius: 15px;
-    margin: 0 auto;
-    padding: 15px;
+@import './base.scss';
 
+.selfCard {
     .image {
         border-radius: 50%;
         width: 100px;
@@ -39,7 +33,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    .card {
+    .selfCard {
         display: flex;
         flex-direction: column;
         justify-content: center;
