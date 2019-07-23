@@ -1,7 +1,7 @@
 import React from "react";
-import families from "../../data.json";
-import UserSelfCard from "./UserSelfCard";
 import styles from "./UserCard.module.scss";
+import UserSelfCard from "./UserSelfCard";
+import { getPersonById } from "../../utils";
 
 const UserCard = ({ user }) => {
 	return (
@@ -10,17 +10,21 @@ const UserCard = ({ user }) => {
 			<div className={styles.card}>
 				<p className={styles.title}>Married to</p>
 				{user.marriedTo.map(id => (
-					<a href={`#${id}`} key={id} className={styles.link}>
-						{id}
-					</a>
+					<UserSelfCard
+						key={id}
+						user={getPersonById(id)}
+						secondary={true}
+					/>
 				))}
 			</div>
 			<div className={styles.card}>
 				<p className={styles.title}>Children</p>
 				{user.children.map(id => (
-					<a href={`#${id}`} key={id} className={styles.link}>
-						{id}
-					</a>
+					<UserSelfCard
+						key={id}
+						user={getPersonById(id)}
+						secondary={true}
+					/>
 				))}
 			</div>
 		</div>
