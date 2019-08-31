@@ -1,8 +1,9 @@
-import React from 'react';
-import './App.css';
-import MainApp from './Exercises/App';
-import Auth from './Exercises/Auth';
+import React from "react";
+import "./App.css";
+import MainApp from "./App/";
+// import Auth from "./Auth";
 
 export default function App() {
-  return <MainApp />;
+	console.group("Yesss!");
+	return <MainApp />;
 }
