@@ -6,7 +6,7 @@ import UserList from "./UserList";
 const App = () => {
 	const [users, setUsers] = React.useState([]);
 	const [link, setLink] = React.useState(
-		"http://localhost:3001/persons?_page=1&_limit=2"
+		"http://localhost:5000/persons?_page=1&_limit=2"
 	);
 	const [loading, setLoading] = React.useState(true);
 

@@ -7,7 +7,7 @@ const UserCard = ({ userId }) => {
 	const { getPersonById, updateUser } = useUsers();
 	const user = getPersonById(userId);
 	const fetchUser = userId => {
-		return fetch(`http://localhost:3001/persons/${userId}`)
+		return fetch(`http://localhost:5000/persons/${userId}`)
 			.then(res => res.json())
 			.then(res => res.data);
 	};

@@ -14,7 +14,6 @@ import {
 import GoBack from "./GoBack";
 import PrivateRoute from "../PrivateRoute";
 import Auth, { useAuth } from "../Auth";
-// import AddUser from '../AddUser';
 const AddUser = lazy(() => import("../AddUser"));
 
 const UsersContext = React.createContext();
@@ -60,7 +59,7 @@ const Homepage = () => {
 const App = () => {
 	const [users, setUsers] = React.useState([]);
 	const [link, setLink] = React.useState(
-		"http://localhost:3001/persons?_page=1&_limit=2"
+		"http://localhost:5000/persons?_page=1&_limit=2"
 	);
 	const [loading, setLoading] = React.useState(true);
 
