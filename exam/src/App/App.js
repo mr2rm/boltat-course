@@ -19,10 +19,9 @@ const AddUser = lazy(() => import("../AddUser"));
 const UsersContext = React.createContext();
 
 export function useUsers() {
-	const { users, updateUser, ...rest } = React.useContext(UsersContext);
+	const { users, ...rest } = React.useContext(UsersContext);
 	return {
 		users,
-		updateUser,
 		getPersonById: pId => users.find(user => user.id === pId),
 		...rest
 	};

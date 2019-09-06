@@ -5,7 +5,13 @@ import { Formik, Field, ErrorMessage } from "formik";
 
 const AddUser = ({ history }) => {
 	const { addUser, users } = useUsers();
-	const availableSelection = [];
+	const userOptions = users.map(user => (
+		<option key={user.id} value={user.id}>
+			{`${user.name} ${user.surName}`}
+		</option>
+	));
+	const getSelectedValues = e =>
+		Array.from(e.target.selectedOptions).map(option => Number(option.value));
 	return (
 		<div style={{ padding: "20px" }} className="App">
 			<Formik
@@ -22,12 +28,12 @@ const AddUser = ({ history }) => {
 				onSubmit={values => {
 					setTimeout(() => {
 						addUser({
-							id: Math.random() * 100000000,
+							id: parseInt(Math.random() * 100000000),
 							name: values.name,
 							gender: values.gender,
 							age: values.age,
-							children: [],
-							marriedTo: []
+							children: values.children,
+							marriedTo: values.marriedTo
 						});
 						history.push("/users");
 					}, 2000);
@@ -35,17 +41,9 @@ const AddUser = ({ history }) => {
 				initialValues={{
 					name: "",
 					gender: "male",
-					age: 20,
-					children: []
+					age: 20
 				}}
-				render={({
-					values,
-					handleChange,
-					errors,
-					handleSubmit,
-					isSubmitting,
-					setFieldValue
-				}) => {
+				render={({ handleSubmit, isSubmitting, setFieldValue }) => {
 					return (
 						<form onSubmit={handleSubmit}>
 							<label>Name</label>
@@ -66,25 +64,32 @@ const AddUser = ({ history }) => {
 							<ErrorMessage name="age" />
 							<br />
 							<br />
+							<label>Married to</label>
+							<Field
+								component="select"
+								name="marriedTo"
+								onChange={e =>
+									setFieldValue("marriedTo", getSelectedValues(e))
+								}
+								multiple={true}
+							>
+								{userOptions}
+							</Field>
+							<br />
+							<br />
+							<label>Children</label>
 							<Field
 								component="select"
 								name="children"
 								onChange={e =>
-									setFieldValue(
-										"children",
-										Array.from(e.target.selectedOptions).map(
-											option => option.value
-										)
-									)
+									setFieldValue("children", getSelectedValues(e))
 								}
 								multiple={true}
 							>
-								{users.map(user => (
-									<option key={user.id} value={user.name}>
-										{user.name}
-									</option>
-								))}
+								{userOptions}
 							</Field>
+							<br />
+							<br />
 							<input disabled={isSubmitting} type="submit" />
 						</form>
 					);
