@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-const GoBack = ({ onClick, history, ...props }) => {
+const GoBack = ({ onClick, history, staticContext, ...props }) => {
 	const handleClick = e => {
 		e.preventDefault();
 		history.goBack();

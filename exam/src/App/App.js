@@ -92,52 +92,56 @@ const App = () => {
 		<Auth>
 			<Router>
 				<UsersContext.Provider value={{ users, updateUser, addUser }}>
-					<Switch>
-						<Route exact={true} path="/" component={Homepage} />
-						<Route path="/callback" component={SpotifyCallback} />
-						<PrivateRoute
-							exact={true}
-							path="/users"
-							render={() => (
-								<>
-									<UserList users={users} />
-									<div className={styles.container}>
-										<Link to="/users/add">
-											<div
-												className={`${styles.card} ${styles.hoverable}`}
-											>
-												+ Add user
-											</div>
-										</Link>
-									</div>
-									{loading ? (
-										<div className={styles.container}>
-											<img src={loadingIndicator} />
-										</div>
-									) : null}
-								</>
-							)}
-						/>
-						<Suspense fallback={<h1>Loading...</h1>}>
-							<Route path="/users/add" component={AddUser} />
-						</Suspense>
-						<Route
-							path="/user/:userId"
-							render={({ match }) => {
-								const userId = Number(match.params.userId);
-								return (
+					<Suspense fallback={<h1>Loading...</h1>}>
+						<Switch>
+							<Route exact={true} path="/" component={Homepage} />
+							<Route path="/callback" component={SpotifyCallback} />
+							<PrivateRoute
+								exact={true}
+								path="/users"
+								render={() => (
 									<>
-										<GoBack>
-											<BackButton className={styles.back} />
-										</GoBack>
-										<UserCard userId={userId} />
+										<UserList users={users} />
+										<div className={styles.container}>
+											<Link to="/users/add">
+												<div
+													className={`${styles.card} ${styles.hoverable}`}
+												>
+													+ Add user
+												</div>
+											</Link>
+										</div>
+										{loading ? (
+											<div className={styles.container}>
+												<img src={loadingIndicator} />
+											</div>
+										) : null}
 									</>
-								);
-							}}
-							condition={window.location.pathname.startsWith("/user/")}
-						/>
-						<Route path="/" render={() => <div>404</div>} />
-					</Switch>
+								)}
+							/>
+							<Route path="/users/add" component={AddUser} />
+							<Route
+								path="/user/:userId"
+								render={({ match }) => {
+									const userId = Number(match.params.userId);
+									return (
+										<>
+											<GoBack>
+												<BackButton
+													className={styles.back}
+												/>
+											</GoBack>
+											<UserCard userId={userId} />
+										</>
+									);
+								}}
+								condition={window.location.pathname.startsWith(
+									"/user/"
+								)}
+							/>
+							<Route path="/" render={() => <div>404</div>} />
+						</Switch>
+					</Suspense>
 				</UsersContext.Provider>
 			</Router>
 		</Auth>

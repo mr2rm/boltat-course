@@ -25,6 +25,7 @@ const UserCard = ({ userId }) => {
 				{user.marriedTo.map(pId => {
 					return (
 						<UserSelfCard
+							key={pId}
 							hoverable={true}
 							secondary={true}
 							userId={pId}
@@ -37,6 +38,7 @@ const UserCard = ({ userId }) => {
 				{user.children.map(pId => {
 					return (
 						<UserSelfCard
+							key={pId}
 							hoverable={true}
 							secondary={true}
 							userId={pId}
